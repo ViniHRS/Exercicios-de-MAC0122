@@ -31,7 +31,6 @@ int main() {
 }
 
 int search(int N, int n, int array[]) {
-    int position;
     if (N > 0) {
         if (n == array[N-1]) {
             return N-1;
