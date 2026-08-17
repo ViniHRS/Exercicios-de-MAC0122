@@ -32,6 +32,9 @@ void insertion_sort(int N, int array[]) {
                 array[j] = array[j-1];
                 array[j-1] = change;
             }
+            else {
+                break;
+            }
         }
     }
 }
