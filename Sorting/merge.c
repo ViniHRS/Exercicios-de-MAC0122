@@ -84,7 +84,7 @@ void merge(int A[], int start, int middle, int end) {
         r++;
         k++;
     } 
-    //Freeing the memory allocated
+    //Freeing up the memory allocated
     free(left);
     free(right);
 }
