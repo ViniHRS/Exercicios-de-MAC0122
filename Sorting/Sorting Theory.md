@@ -5,7 +5,7 @@
 O algoritmo Insertion Sort (ordenação por inserção) consiste em dividir o vetor em duas partes: uma parte ordenada e outra não ordenada. Deve-se, então, percorrer a parte não ordenada e inserir cada elemento desta parte na posição correta da porção ordenada do vetor.
 
 A figura abaixo ilustra um exemplo visual de como o Insertion Sort funciona:  
-![alt text](<Insertion Sort.jpeg>)
+![alt text](<Images/Insertion Sort.jpeg>)
 
 ### Análise de Complexidade
 - **Melhor caso**  
