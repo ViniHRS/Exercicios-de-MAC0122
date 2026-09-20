@@ -5,7 +5,7 @@
 O algoritmo Insertion Sort (ordenação por inserção) consiste em dividir o vetor em duas partes: uma parte ordenada e outra não ordenada. Deve-se, então, percorrer a parte não ordenada e inserir cada elemento desta parte na posição correta da porção ordenada do vetor.
 
 A figura abaixo ilustra um exemplo visual de como o Insertion Sort funciona:  
-![alt text](<Images/Insertion Sort.jpeg>)
+![Insertion Sort Image](<Images/Insertion Sort.jpeg>)
 
 ### Análise de Complexidade
 - **Melhor caso**  
@@ -24,19 +24,36 @@ Percebe-se, então, que o Insertion Sort é um algoritmo lento, pois consome um 
 
 ## Selection Sort
 ### Descrição do Algoritmo
+O algoritmo de Selection Sort (ordenação por seleção) consistem em dividir o vetor em duas sublistas: a sublista esquerda ordenada e a sublista direita não ordenada.  
+Primeiramente, o algoritmo considera a sublista ordenada vazia e a não ordenada como todo o vetor. Depois, ele percorre todo o vetor não ordenado em busca do menor elemento e, ao encontrá-lo, troca-se o menor elemento com o primeiro elemento da região não ordenada. Por fim, o algoritmo desloca a fronteira entre as sublistas uma posição para a direita e repete todo o processo, até ordenar o vetor completamente.
+
+A figura abaixo ilustra visualmente como o Selection Sort funciona:  
+![Selection Sort Image](<Images/Selection Sort.png>)
 
 ### Análise de Complexidade
-- **Melhor caso**
-- **Caso médio**
-- **Pior caso**
+- **Pior, médio e melhor casos**
+Nos três casos, o algoritmo possui complexidade **O(n²)**, pois ele sempre varre toda a sublista não ordenada, independentemente se o vetor está parcialmente ou totalmente ordenado.
+
+Assim como o Insertion Sort, o Selection Sort é um algoritmo in-place, ou seja, opera diretamente na estrutura original (não cria vetores auxiliares para ordenação). Entretanto, ao contrário do Insertion Sort, ele não é estável (pode trocar elementos iguais de posição) e, em seu melhor caso, possui complexidade O(n²). Portanto, o algoritmo Insertion Sort é preferível ao Selection Sort, pois, no melhor caso, aquele é mais rápido do que este.
 
 ## Bubble Sort
 ### Descrição do Algoritmo
+O algoritmo Bubble Sort consiste em comparar elementos vizinhos e, se estiverem na ordem errada, devem ser trocados de posição. A ideia é que os elementos maiores vão "subindo" no vetor até chegarem na posição correta, semelhante a uma bolha.
+
+Abaixo, segue uma ilustração de como o Bubble Sort funciona:
+![Bubble Sort Image](<Images/Bubble Sort.jpg>)
 
 ### Análise de Complexidade
-- **Melhor caso**
-- **Caso médio**
-- **Pior caso**
+- **Melhor caso**  
+No melhor caso, o algoritmo realiza n comparações e nenhuma troca. Assim, a complexidade nesse caso é de **O(n)**.
+- **Pior caso**  
+No pior caso, o número de comparações feitas é aproximadamente  
+    (n-1) + (n-2) + (n-3) + ... + 2 + 1 = (n²-n)/2  
+    Assim, a complexidade é **O(n²)**.  
+- **Caso médio**  
+No caso médio, o número de comparações realizadas também é da ordem n². Portanto, a complexidade nesse caso também é **O(n²)**.
+
+O Bubble Sort, assim como o Insertion Sort, também é estável e in-place. Além disso, ele também possui melhor caso O(n) e casos médio e ruim O(n²).
 
 ## Merge Sort
 ### Descrição do Algoritmo
