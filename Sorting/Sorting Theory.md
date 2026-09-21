@@ -62,7 +62,9 @@ O Merge Sort é um algoritmo de ordenação baseado no paradigma de Divisão e C
 <u>Fundamento Teórico:</u>
 
 1. **Divisão:** O vetor é dividido sucessivamente ao meio até gerar subvetores contendo apenas um elemento. Um vetor com um único elemento é considerado ordenado por definição.
+
 2. **Conquista:** As subdivisões são ordenadas recursivamente.
+
 3. **Combinação (Intercalação ou Merge):** Dois subvetores adjacentes e já ordenados são fundidos em um único vetor ordenado. Para isso, compara-se o primeiro elemento não processado de cada subvetor e copia-se o menor elemento para o vetor final até consumir ambas as partes.
 
 Segue uma imagem para ilustrar o funcionamento do Merge Sort:
@@ -77,11 +79,26 @@ Entretanto, ele é um algoritmo estável e rápido, sendo mais vantajoso em ques
 
 ## Quick Sort
 ### Descrição do Algoritmo
+O Quick Sort é um dos algoritmos de ordenação mais eficientes na prática, baseado no paradigma de Divisão e Conquista, assim como o Merge Sort. Ele rearranja a estrutura reposicionando os elementos com base em um valor de referência chamado pivô.
+
+<u>Funcionamento Passo a Passo:</u>
+
+1. **Escolha do Pivô:** Seleciona-se um elemento do vetor para ser a referência (comumente o último elemento, o primeiro, o elemento central ou a mediana de três).
+
+2. **Particionamento:** Os elementos do vetor são reorganizados de forma que todos os itens menores que o pivô fiquem à sua esquerda, e todos os maiores ou iguais fiquem à sua direita. Ao final dessa fase, o pivô é inserido em sua posição exata e definitiva.
+
+3. **Recursão:** Aplica-se o processo de forma independente para a sublista à esquerda do pivô e para a sublista à direita. A recursão atinge o caso-base quando o subvetor possui 0 ou 1 elemento (já ordenado).
+
+A figura abaixo ilustra como o Quick Sort funciona:
+![Quick Sort Image](<Images/Quick Sort.jpg>)
 
 ### Análise de Complexidade
-- **Melhor caso**
-- **Caso médio**
-- **Pior caso**
+- **Melhor e médio caso**  
+O melhor e o médio caso ocorrem quando o pivô divide o vetor em partes balanceadas, gerando uma árvore de chamadas recursivas com altura $\log_2 n$. Como cada nível requer operações de intercalação de ordem O(n), o algoritmo é de complexidade **O($n \log n$)**.
+- **Pior caso**  
+No pior caso, a escolha do pivô é desfavorável em todas as etapas, tornando o algoritmo de complexidade **O(n²)**.
+
+Ao contrário do Merge Sort, o Quick Sort não é um algoritmo estável. Além disso, apesar de ser rápido como o Merge Sort no pior caso e caso médio, ele não requer memória adicional para fazer a ordenação (é in-place). Entretanto, caso a escolha do pivô seja desfavorável, o pior caso do Quick Sort acaba sendo pior do que o caso mais desfavorável do Merge Sort. Nesse sentido, o Merge Sort acaba sendo um algoritmo mais previsível do que o Quick Sort.
 
 ## Heap Sort
 ### Descrição do Algoritmo
