@@ -134,11 +134,30 @@ O Heap Sort é um algoritmo in-place, pois a manipulação ocorre diretamente no
 
 ## Counting Sort
 ### Descrição do Algoritmo
+O algoritmo de Counting Sort, ao contrário dos algoritmos anteriores, não realiza comparações diretas entre os elementos. Ele utiliza a matemática e o índice de vetores para ordenar os elementos.  
+O algoritmo funciona como uma urna de votação. Se você sabe que os valores do seu vetor variam de 0 a 10, você cria um "caderno de anotações" (um vetor auxiliar) com 11 posições. Em seguida, você lê o vetor original e, para cada número encontrado, faz um "risquinho" na posição correspondente do caderno. No final, basta ler o caderno em ordem.  
+
+**Funcionamento Passo a Passo:**  
+
+1. **Descoberta do Limite:** o algoritmo varre o vetor para encontrar o maior valor presente (chamaremos de k).
+
+2. **Vetor de Contagem:** cria-se um vetor auxiliar de tamanho k + 1, preenchido com zeros.
+
+3. **Contagem de Frequência:** percorre-se o vetor original. Se encontrarmos o número 5, incrementamos o valor no índice 5 do vetor de contagem.
+
+4. **Soma Acumulada:** modificamos o vetor de contagem para que cada posição some o seu valor com o da posição anterior. Isso transforma as contagens em posições exatas no vetor final.
+
+5. **Posicionamento:** varremos o vetor original de trás para frente. Olhamos o número, verificamos no vetor de contagem em qual posição ele deve ficar, colocamos no vetor de saída e diminuímos a contagem em 1. (Fazer isso de trás para frente garante que o algoritmo seja estável).
+
+Abaixo, segue um exemplo que ilustra o Counting Sort:  
+![Counting Sort Image](<Images/Counting Sort.png>)
 
 ### Análise de Complexidade
-- **Melhor caso**
-- **Caso médio**
-- **Pior caso**
+- **Para todos os casos**  
+O algoritmo tem complexidade de ordem **O(n+k)**, onde n é o número de elementos e k é o maior valor presente no vetor. Se k for pequeno em relação a n, o algoritmo roda em tempo linear **O(n)**, batendo qualquer algoritmo de comparação.
+
+O Counting Sort é um algoritmo de espaço O(n+k), pois requer alocação de memória para o vetor de contagem (tamanho k) e para o vetor de saída (tamanho n) e, além disso, é estável.  
+Entretanto, o algoritmo possui algumas limitações. Ele funciona apenas para números inteiros não-negativos em sua forma básica e também é inviável se a amplitude dos dados (k) for muito grande. Por exemplo, ordenar o vetor [1, 1000000000] exigiria alocar um vetor de contagem com 1 bilhão de posições de memória para ordenar apenas dois números.
 
 ## Radix Sort
 ### Descrição do Algoritmo
