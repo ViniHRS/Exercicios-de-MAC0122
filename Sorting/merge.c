@@ -42,7 +42,7 @@ void merge(int A[], int start, int middle, int end) {
     //Making a copy of both sides of the array
     int nL = middle - start + 1;
     int nR = end - middle;
-    //Alocating memory for the copies
+    //Allocating memory for the copies
     int *left = (int*)malloc(nL*sizeof(int));
     int *right = (int*)malloc(nR*sizeof(int));
 
