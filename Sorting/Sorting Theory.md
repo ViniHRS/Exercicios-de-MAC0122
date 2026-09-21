@@ -31,7 +31,7 @@ A figura abaixo ilustra visualmente como o Selection Sort funciona:
 ![Selection Sort Image](<Images/Selection Sort.png>)
 
 ### Análise de Complexidade
-- **Pior, médio e melhor casos**
+- **Pior, médio e melhor casos**  
 Nos três casos, o algoritmo possui complexidade **O(n²)**, pois ele sempre varre toda a sublista não ordenada, independentemente se o vetor está parcialmente ou totalmente ordenado.
 
 Assim como o Insertion Sort, o Selection Sort é um algoritmo in-place, ou seja, opera diretamente na estrutura original (não cria vetores auxiliares para ordenação). Entretanto, ao contrário do Insertion Sort, ele não é estável (pode trocar elementos iguais de posição) e, em seu melhor caso, possui complexidade O(n²). Portanto, o algoritmo Insertion Sort é preferível ao Selection Sort, pois, no melhor caso, aquele é mais rápido do que este.
@@ -159,10 +159,41 @@ O algoritmo tem complexidade de ordem **O(n+k)**, onde n é o número de element
 O Counting Sort é um algoritmo de espaço O(n+k), pois requer alocação de memória para o vetor de contagem (tamanho k) e para o vetor de saída (tamanho n) e, além disso, é estável.  
 Entretanto, o algoritmo possui algumas limitações. Ele funciona apenas para números inteiros não-negativos em sua forma básica e também é inviável se a amplitude dos dados (k) for muito grande. Por exemplo, ordenar o vetor [1, 1000000000] exigiria alocar um vetor de contagem com 1 bilhão de posições de memória para ordenar apenas dois números.
 
+**OBS:** na implementação deste repositório, o Counting Sort foi adaptado para ordenar números negativos também.
+
 ## Radix Sort
 ### Descrição do Algoritmo
+O Radix Sort (ordenação por raiz) é a solução inteligente para a maior fraqueza do Counting Sort: o consumo massivo de memória quando a amplitude dos números é muito grande.
+
+Em vez de criar um vetor de contagem do tamanho do maior número (o que seria inviável para o número 1.000.000, por exemplo), o Radix Sort ordena os números dígito por dígito, do menos significativo (unidades) para o mais significativo (centenas, milhares, etc.).
+
+Para ordenar cada coluna de dígitos, o Radix Sort usa o Counting Sort como um sub-algoritmo auxiliar. Como estamos lidando apenas com um dígito por vez (na base decimal, números de 0 a 9), o vetor de contagem do Counting Sort terá sempre o tamanho fixo e minúsculo de 10 posições.
+
+O Radix Sort depende da estabilidade do Counting Sort para funcionar, pois quando ele passa da casa das unidades para a casa das dezenas, ele ordena os números baseando-se apenas na dezena. Se houver um empate na dezena, o algoritmo não pode embaralhar a ordem que já havia sido conquistada na casa das unidades. A estabilidade garante que a ordenação das etapas anteriores seja preservada durante o empate.
+
+**Funcionamento Passo a Passo:**  
+Tome o vetor: [170, 45, 75, 90, 802, 2, 24]
+
+1. **Maior Número:** encontra-se o maior elemento (802) para saber que o algoritmo precisará rodar 3 vezes (pois 802 tem 3 dígitos: unidades, dezenas e centenas).
+
+2. **Unidades (1ª rodada):** o Counting Sort olha apenas para o último dígito de cada número.
+
+    [170, 90, 802, 2, 24, 45, 75]   
+
+    (O 170 vem antes do 90 por causa da estabilidade do vetor original).
+
+2. **Dezenas (2ª rodada):** o Counting Sort olha para o penúltimo dígito. Números que não têm dezenas (como o 2) são tratados como 02.
+
+    [802, 2, 24, 45, 170, 75, 90]
+
+3. **Centenas (3ª rodada):** o Counting Sort olha para o primeiro dígito.
+
+    [2, 24, 45, 75, 90, 170, 802] -> Vetor ordenado.
+
+Abaixo, segue um exemplo de como o Radix Sort funciona:  
+![Radix Sort Image](<Images/Radix Sort.png>)
 
 ### Análise de Complexidade
-- **Melhor caso**
-- **Caso médio**
-- **Pior caso**
+- **Para todos os casos**  
+**O(d.(n + k))**, onde d é o número de dígitos do maior valor, n é o total de elementos e k é a base numérica (10). Na prática, para números limitados, comporta-se de forma quase linear.
+- **Espaço: O(n + k)** utilizado pelas matrizes auxiliares do Counting Sort embutido.
