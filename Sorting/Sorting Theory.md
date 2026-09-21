@@ -57,11 +57,23 @@ O Bubble Sort, assim como o Insertion Sort, também é estável e in-place. Alé
 
 ## Merge Sort
 ### Descrição do Algoritmo
+O Merge Sort é um algoritmo de ordenação baseado no paradigma de Divisão e Conquista, reduzindo o problema principal de ordenar um grande vetor em subproblemas menores e mais fáceis de resolver.
+
+<u>Fundamento Teórico:</u>
+
+1. **Divisão:** O vetor é dividido sucessivamente ao meio até gerar subvetores contendo apenas um elemento. Um vetor com um único elemento é considerado ordenado por definição.
+2. **Conquista:** As subdivisões são ordenadas recursivamente.
+3. **Combinação (Intercalação ou Merge):** Dois subvetores adjacentes e já ordenados são fundidos em um único vetor ordenado. Para isso, compara-se o primeiro elemento não processado de cada subvetor e copia-se o menor elemento para o vetor final até consumir ambas as partes.
+
+Segue uma imagem para ilustrar o funcionamento do Merge Sort:
+![Merge Sort Image](<Images/Merge Sort.png>)
 
 ### Análise de Complexidade
-- **Melhor caso**
-- **Caso médio**
-- **Pior caso**
+- **Pior, médio e melhor casos**  
+Independente do caso, o algoritmo divide o vetor em uma árvore de profundidade $\log_2 n$, e cada nível da árvore requer O(n) operações para realizar a intercalação dos elementos. Assim, a complexidade do algoritmo é da ordem **O($n \log n$)**.  
+
+O Merge Sort tem complexidade de espaço O(n) e, ao contrário dos algoritmos anteriores, não é in-place, pois ele requer memória adicional proporcional ao tamanho da estrutura para criar os subvetores temporários durante a fusão (merge).  
+Entretanto, ele é um algoritmo estável e rápido, sendo mais vantajoso em questão de tempo. Porém, é importante ressaltar que, para garantir uma menor execução de tempo, o Merge Sort utiliza mais memória, devendo-se, então, avaliar se compensa gastar mais memória para executar a ordenação em menos tempo.
 
 ## Quick Sort
 ### Descrição do Algoritmo
