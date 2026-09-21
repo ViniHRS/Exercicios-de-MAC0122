@@ -102,11 +102,35 @@ Ao contrário do Merge Sort, o Quick Sort não é um algoritmo estável. Além d
 
 ## Heap Sort
 ### Descrição do Algoritmo
+O Heap Sort é um algoritmo que utiliza uma estrutura de dados chamada Heap (especificamente um Max-Heap) para ordenar os elementos. Ele é considerado um algoritmo híbrido do ponto de vista de vantagens, pois combina a previsibilidade de tempo do Merge Sort com a eficiência de memória do Selection Sort.
+
+**A Estrutura Max-Heap**
+
+O segredo do algoritmo é não usar ponteiros ou estruturas complexas, mas sim enxergar o vetor comum como uma árvore binária completa. Em um Max-Heap, a regra fundamental é que o valor de qualquer nó pai é sempre maior ou igual ao de seus filhos.
+
+Em um vetor comum, se um nó pai está no índice i, o algoritmo encontra seus filhos matematicamente:  
+- O filho da esquerda está em 2i + 1.  
+- O filho da direita está em 2i + 2.
+
+**Funcionamento Passo a Passo:**
+
+1. **Construção do Heap (Build-Heap):** O algoritmo primeiro varre a metade inicial do vetor de trás para frente, aplicando uma função corretiva para garantir que todos os pais sejam maiores que seus filhos. O maior elemento de todo o vetor acaba subindo para a raiz (índice 0).
+
+2. **Troca e Isolamento:** O elemento da raiz (o maior de todos) é trocado com o último elemento do vetor. Com isso, o maior número já está na sua posição definitiva no final da lista.
+
+3. **Redução:** O tamanho "visível" do Heap é reduzido em 1. O elemento recém-posicionado no fim passa a ser ignorado.
+
+4. **Reconstrução (Heapify):** A nova raiz colocada no passo 2 provavelmente é um número pequeno (já que veio do final da árvore), violando a regra do Max-Heap. O algoritmo a "afunda" na árvore, trocando-a com o maior de seus filhos, até que a propriedade seja restaurada e o segundo maior elemento assuma a raiz.
+
+5. **Repetição:** Os passos 2 a 4 se repetem até restar apenas um elemento.
+
+Abaixo, segue uma ilustração de como funciona o Heap Sort:  
+![Heap Sort Image](<Images/Heap Sort.png>)
 
 ### Análise de Complexidade
-- **Melhor caso**
-- **Caso médio**
-- **Pior caso**
+- **Tempo (para todos os casos):** **$O(n \log n)$**. A construção inicial do heap custa $O(n)$. Depois, a cada extração, o reposicionamento (Heapify) custa $O(\log n)$. Como isso é feito $n-1$ vezes, o desempenho é extremamente consistente, sem a queda de performance que o Quick Sort sofre no pior caso.
+
+O Heap Sort é um algoritmo in-place, pois a manipulação ocorre diretamente no vetor original. Entretanto, ele não é um algoritmo estável, pois a ação de pegar o último elemento da árvore e jogá-lo na raiz desestabiliza a ordem original de elementos repetidos.
 
 ## Counting Sort
 ### Descrição do Algoritmo
