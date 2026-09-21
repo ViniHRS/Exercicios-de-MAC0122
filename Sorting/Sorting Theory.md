@@ -40,7 +40,7 @@ Assim como o Insertion Sort, o Selection Sort é um algoritmo in-place, ou seja,
 ### Descrição do Algoritmo
 O algoritmo Bubble Sort consiste em comparar elementos vizinhos e, se estiverem na ordem errada, devem ser trocados de posição. A ideia é que os elementos maiores vão "subindo" no vetor até chegarem na posição correta, semelhante a uma bolha.
 
-Abaixo, segue uma ilustração de como o Bubble Sort funciona:
+Abaixo, segue uma ilustração de como o Bubble Sort funciona:  
 ![Bubble Sort Image](<Images/Bubble Sort.jpg>)
 
 ### Análise de Complexidade
@@ -67,7 +67,7 @@ O Merge Sort é um algoritmo de ordenação baseado no paradigma de Divisão e C
 
 3. **Combinação (Intercalação ou Merge):** Dois subvetores adjacentes e já ordenados são fundidos em um único vetor ordenado. Para isso, compara-se o primeiro elemento não processado de cada subvetor e copia-se o menor elemento para o vetor final até consumir ambas as partes.
 
-Segue uma imagem para ilustrar o funcionamento do Merge Sort:
+Segue uma imagem para ilustrar o funcionamento do Merge Sort:  
 ![Merge Sort Image](<Images/Merge Sort.png>)
 
 ### Análise de Complexidade
@@ -89,7 +89,7 @@ O Quick Sort é um dos algoritmos de ordenação mais eficientes na prática, ba
 
 3. **Recursão:** Aplica-se o processo de forma independente para a sublista à esquerda do pivô e para a sublista à direita. A recursão atinge o caso-base quando o subvetor possui 0 ou 1 elemento (já ordenado).
 
-A figura abaixo ilustra como o Quick Sort funciona:
+A figura abaixo ilustra como o Quick Sort funciona:  
 ![Quick Sort Image](<Images/Quick Sort.jpg>)
 
 ### Análise de Complexidade
