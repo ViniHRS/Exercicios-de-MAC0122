@@ -21,3 +21,11 @@ Alocação de memória | Dinâmica (cresce e diminui nó a nó conforme a necess
 Inserção/Remoção    | O(1) no início  (basta redirecionar ponteiros, sem deslocar outros itens) | O(n) (exige deslocar todos os elementos seguintes)  
 Acesso a elementos  | O(n) (busca sequencial obrigatória começando pela Cabeça) | O(1) (acesso direto via índice)  
 Custo de memória    | Maior (cada elemento exige memória extra para armazenar o ponteiro) | Menor (armazena apenas os dados brutos)  
+
+### Considerações Finais
+- O código desenvolvido neste repositório trabalha com dois tipos de inserções: no início e no final da lista. Entretanto, é possível desenvolver uma inserção para qualquer posição da lista, bastando passar como parâmetro da função o endereço do nó anterior.  
+*Exemplo:* 5 -> 7 -> 3 (para inserir um elemento entre 5 e 7, basta passar o enderço do nó do elemento 5).
+
+- Além do modelo clássico de Lista Ligada implementada neste repositório, exitem também a Lista Duplamente Encadeada e a Lista Circular.
+    - <u>Lista Duplamente Encadeada</u>: possui dois ponteiros, um que aponta para o nó anterior e outro que aponta para o próximo nó.
+    - <u>Lista Circular</u>: o último nó aponta para o primeiro nó.
