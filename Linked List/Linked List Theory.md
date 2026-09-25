@@ -17,7 +17,7 @@ Segue um exemplo que ilustra a Lista Ligada:
 ### **Comparativo: Lista Ligada vs Vetor**
 Característica      | Lista Ligada | Vetor  
 ------------------- | ------------ | -----  
-Alocação de memória | Dinâmica (cresce e diminui nó a nó conforme a necessidade) | Maior (cada elemento exige memória extra para armazenar o ponteiro)  
+Alocação de memória | Dinâmica (cresce e diminui nó a nó conforme a necessidade) | Estática (exige definição prévia de tamanho máximo)  
 Inserção/Remoção    | O(1) no início  (basta redirecionar ponteiros, sem deslocar outros itens) | O(n) (exige deslocar todos os elementos seguintes)  
 Acesso a elementos  | O(n) (busca sequencial obrigatória começando pela Cabeça) | O(1) (acesso direto via índice)  
 Custo de memória    | Maior (cada elemento exige memória extra para armazenar o ponteiro) | Menor (armazena apenas os dados brutos)  
