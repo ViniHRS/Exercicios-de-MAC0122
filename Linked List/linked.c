@@ -91,7 +91,7 @@ void insert_in_beggining(Node** head, int value) {
     *head = new_node;
 }
 
-//Inserting an element in the end (O(n) - Lower insertion if there's no pointer for the tail)
+//Inserting an element in the end (O(n) - Lower insertion. Must go through all the list)
 void insert_in_end(Node** head, int value) {
     Node* new_node = create_node(value);
 
