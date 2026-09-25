@@ -1,7 +1,7 @@
 # Teoria sobre Lista Ligada
 
 ## Conceito
-Uma Lista Ligada (ou Lista Encadeada ou Linked List) é uma estrutura de dados linear e dinâmica. Diferente de um vetor, onde os elementos são armazenados em blocos contínuos na memória, os elementos de uma lista ligada ficam espalhados, ou seja, o próximo elemento da lista não está necessariamente armazenado do lado do seu antecessor na memória. Eles mantêm a ordem estrita porque cada elemento armazena o endereço do próximo.
+Uma Lista Ligada (ou Lista Encadeada ou Linked List) é uma estrutura de dados linear e dinâmica. Diferente de um vetor, onde os elementos são armazenados em blocos contínuos na memória, os elementos de uma Lista Ligada ficam espalhados, ou seja, o próximo elemento da lista não está necessariamente armazenado do lado do seu antecessor na memória. Eles mantêm a ordem estrita porque cada elemento armazena o endereço do próximo.
 
 ### **Conceito de Nó**
 O nó é a estrutura fundamental que constrói a Lista Ligada. Ele armzane o dado da lista (um inteiro, caractere, etc) e o endereço de memória do próximo elemento da sequência.
