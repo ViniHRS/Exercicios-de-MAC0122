@@ -27,5 +27,5 @@ Custo de memória    | Maior (cada elemento exige memória extra para armazenar 
 *Exemplo:* 5 -> 7 -> 3 (para inserir um elemento entre 5 e 7, basta passar o endereço do nó do elemento 5).
 
 - Além do modelo clássico de Lista Ligada implementada neste repositório, exitem também a Lista Duplamente Encadeada e a Lista Circular.
-    - <u>Lista Duplamente Encadeada</u>: possui dois ponteiros, um que aponta para o nó anterior e outro que aponta para o próximo nó.
+    - <u>Lista Duplamente Encadeada</u>: cada nó possui dois ponteiros, um que aponta para o nó anterior e outro que aponta para o próximo nó.
     - <u>Lista Circular</u>: o último nó aponta para o primeiro nó.
