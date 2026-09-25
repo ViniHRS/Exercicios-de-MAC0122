@@ -1,0 +1,1 @@
+# Teoria sobre Lista Ligada (ou Lista Encadeada)
