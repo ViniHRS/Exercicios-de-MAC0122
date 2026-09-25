@@ -75,7 +75,7 @@ Node* create_node(int value) {
         exit(1);
     }
     new_node->data = value;
-    new_node->next = NULL;  //It doesn't receive the nex element address yet
+    new_node->next = NULL;  //It doesn't receive the next element address yet
 
     return new_node;
 }
