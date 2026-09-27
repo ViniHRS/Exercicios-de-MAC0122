@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 // Function prototypes
-int* create_queue(int *size);
-void delete_queue(int **queue);
+int* create_queue();
+void delete_queue(int **queue, int *size);
 void enqueue(int **queue, int element, int *size);
 void dequeue(int **queue, int *size);
 void print_queue(int *queue, int *size);
 
 int main() {
     int menu = -1, size = 0;
-    int *queue;
+    int *queue = NULL;
 
     while (menu != 0) {
         printf("==== Queue ====\n"
@@ -25,7 +25,7 @@ int main() {
 
         switch (menu) {
             case 0:
-                delete_queue(&queue);
+                delete_queue(&queue, &size);
                 break;
             case 1:
                 print_queue(queue, &size);
@@ -41,7 +41,7 @@ int main() {
                 dequeue(&queue, &size);
                 break;
             case 4:
-                delete_queue(&queue);
+                delete_queue(&queue, &size);
                 break;
         }
     }
@@ -49,35 +49,35 @@ int main() {
     return 0;
 }
 
-int* create_queue(int *size) {
+int* create_queue() {
     int *queue = (int*)malloc(sizeof(int));
     //Checking if the memory allocation succeded
     if (queue == NULL) {
         printf("Erro ao alocar memória para a fila.\n");
         exit(1);
     }
-    *size = 1;
 
     return queue;
 }
 
-void delete_queue(int **queue) {
+void delete_queue(int **queue, int *size) {
     free(*queue);
     *queue = NULL;
+    *size = 0;
 }
 
 void enqueue(int **queue, int element, int *size) {
     //Checking if a queue was not created
     if (*queue == NULL) {
         //Creating a queue
-        *queue = create_queue(size);
+        *queue = create_queue();
         //Adding the first element in the queue
         (*queue)[0] = element;
+        (*size)++;
     }
     else {
-        (*size)++;
         //Reallocating memory for the queue
-        int *temp = (int*)realloc(*queue, (*size)*sizeof(int));
+        int *temp = (int*)realloc(*queue, (*size + 1)*sizeof(int));
 
         //Checking if the temporary allocation worked
         if (temp == NULL) {
@@ -87,34 +87,37 @@ void enqueue(int **queue, int element, int *size) {
         else {
             //Inserting the new element
             *queue = temp;
-            (*queue)[*size-1] = element;
+            (*queue)[*size] = element;
+            (*size)++;
         }
     }
 }
 
 void dequeue(int **queue, int *size) {
     //Checking if the queue is not empty
-    if (*size > 0 || *queue != NULL) {
-        //Removing the first element in the queue
-        for (int i = 1; i < *size; i++) {
-            (*queue)[i-1] = (*queue)[i];
-        }
-        //Reducing the queue size
-        (*size)--;
-        //Checking if the queue is empty
-        if ((*size) == 0) {
+    if (*size > 0 && *queue != NULL) {
+        //Checking if the queue is going to be empty
+        if ((*size - 1) == 0) {
             free(*queue);
             *queue = NULL;
+            (*size)--;
             return;
-        }
-        //If the queue is not empty, it will be reduced
-        int *temp = (int*)realloc(*queue, (*size)*sizeof(int));
-
-        if (temp != NULL) {
-            *queue = temp;
         }
         else {
-            return;
+            //Removing the first element in the queue
+            for (int i = 1; i < *size; i++) {
+                (*queue)[i-1] = (*queue)[i];
+            }
+            //Reducing the queue
+            int *temp = (int*)realloc(*queue, (*size - 1)*sizeof(int));
+
+            if (temp != NULL) {
+                *queue = temp;
+                (*size)--;
+            }
+            else {
+                return;
+            }
         }
     }
     else {
@@ -124,7 +127,7 @@ void dequeue(int **queue, int *size) {
 
 void print_queue(int *queue, int *size) {
     //Checking if there's a Queue
-    if (queue == NULL) {
+    if (queue == NULL && *size == 0) {
         printf("Não há uma fila criada.\n");
         return;
     }
