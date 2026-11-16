@@ -10,6 +10,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # =========================================================================
 set(FOLDER_MAPPINGS
     "tree:Binary Tree"
+    "graph:Graph Search"
     "hash:Hashing"
     "linked:Linked List"
     "queue:Queue"
