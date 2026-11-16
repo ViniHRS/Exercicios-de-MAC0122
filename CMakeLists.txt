@@ -13,9 +13,11 @@ set(FOLDER_MAPPINGS
     "graph:Graph Search"
     "hash:Hashing"
     "linked:Linked List"
+    "mst:Minimum Spanning Tree"
     "queue:Queue"
     "recursion:Recursion"
     "search:Search"
+    "short:Shortest Path"
     "sort:Sorting"
     "stack:Stack"
 )

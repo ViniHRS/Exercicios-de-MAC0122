@@ -20,12 +20,14 @@ O target `folder`, apesar de fazer referência a pasta em que o programa se enco
     | Pasta        | Apelido   |  
     | ---          | ---       |  
     | Binary Tree  | tree      |  
-    | Graph Search | graph     |
+    | Graph Search | graph     |  
     | Hashing      | hash      |  
     | Linked List  | linked    |  
+    | Minimum Spanning Tree | mst |  
     | Queue        | queue     |  
     | Recursion    | recursion |  
     | Search       | search    |  
+    | Shortest Path | short    |  
     | Sorting      | sort      |  
     | Stack        | stack     |  
 
