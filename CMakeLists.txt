@@ -2,47 +2,52 @@ cmake_minimum_required(VERSION 3.10)
 project(Exercicios-de-MAC0122 C)
 
 # Define onde os arquivos executáveis serão salvos.
-# ${CMAKE_BINARY_DIR} representará a pasta "build" que você criar.
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # =========================================================================
-# 1. Adiciona as pastas presentes no repositório
+# 1. Mapeamento de Apelido -> Nome Real da Pasta
+# Formato: "apelido:Nome da Pasta"
 # =========================================================================
-set(FOLDERS
-    "Binary Tree"
-    "Hashing"
-    "Linked List"
-    "Queue"
-    "Recursion"
-    "Search"
-    "Sorting"
-    "Stack"
+set(FOLDER_MAPPINGS
+    "tree:Binary Tree"
+    "hash:Hashing"
+    "linked:Linked List"
+    "queue:Queue"
+    "recursion:Recursion"
+    "search:Search"
+    "sort:Sorting"
+    "stack:Stack"
 )
 
 # =========================================================================
 # 2. Lógica automática de geração dos alvos de compilação e execução
 # =========================================================================
-foreach(folder IN LISTS FOLDERS)
-    # Procura por todos os arquivos .c dentro da pasta atual
+foreach(mapping IN LISTS FOLDER_MAPPINGS)
+    # Substitui os ":" por ";" para transformar a string em uma lista nativa do CMake
+    string(REPLACE ":" ";" mapping_list "${mapping}")
+    
+    # Extrai o primeiro elemento (apelido) e o segundo elemento (nome real da pasta)
+    list(GET mapping_list 0 alias)
+    list(GET mapping_list 1 folder)
+
+    # Procura por todos os arquivos .c dentro da pasta real
     file(GLOB files_c "${folder}/*.c")
 
-    foreach(file IN LISTS files_c)
-        # Extrai apenas o nome do arquivo sem a extensão (ex: main.c -> main)
-        get_filename_component(programa ${file} NAME_WE)
+    foreach(file_path IN LISTS files_c)
+        # Extrai apenas o nome do arquivo sem a extensão (ex: Binary Tree/main.c -> main)
+        get_filename_component(programa "${file_path}" NAME_WE)
 
-        # Define o nome do alvo (Target) no formato folder_program
-        set(compiling_target "${folder}_${file}")
+        # Define o nome do alvo (Target) no formato alias_programa (ex: sort_heap)
+        set(compiling_target "${alias}_${programa}")
 
-        # Cria o comando de compilação (make folder_file)
-        add_executable(${compiling_target} ${file})
+        # Cria o comando de compilação (make alias_programa)
+        add_executable(${compiling_target} "${file_path}")
 
-        # Cria o comando de execução (make run_file)
-        # O comando DEPENDS garante que o código seja compilado antes de rodar
-        add_custom_target(run_${file}
+        # Cria o comando de execução (make run_programa)
+        add_custom_target(run_${programa}
             COMMAND ${compiling_target}
             DEPENDS ${compiling_target}
             WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-            COMMENT "================ Rodando ${programa} da pasta ${pasta} ================"
         )
     endforeach()
 endforeach()
