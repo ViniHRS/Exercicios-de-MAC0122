@@ -3,7 +3,6 @@
 #define N 5
 
 // Function prototypes
-int* create_visited();
 void BFS(int graph[N][N], int first);
 
 int main() {
