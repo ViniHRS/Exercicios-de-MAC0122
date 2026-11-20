@@ -233,14 +233,14 @@ Considerando:
 - \(V\): quantidade de vértices.
 - \(E\): quantidade de arestas.
 
-Tanto a DFS quanto a BFS possuem complexidade **$ O(V + E) $**.
+Tanto a DFS quanto a BFS possuem complexidade **O(V + E)**.
 
 Essa complexidade considera a utilização de uma lista de adjacência.
 
 Isso significa que o algoritmo precisa processar cada vértice e cada aresta, no máximo, uma quantidade constante de vezes.
 
-Quando utilizamos uma matriz de adjacência, a complexidade passa a ser **$ O(V²) $**.
+Quando utilizamos uma matriz de adjacência, a complexidade passa a ser **O(V²)**.
 
 Isso ocorre porque, para cada vértice, precisamos verificar todas as possíveis conexões com os demais vértices.
 
-Ambos os algoritmos também podem utilizar $ O(V) $ de espaço auxiliar, considerando o vetor de visitados e a pilha ou fila utilizada na exploração.
+Ambos os algoritmos também podem utilizar **O(V)** de espaço auxiliar, considerando o vetor de visitados e a pilha ou fila utilizada na exploração.
