@@ -203,3 +203,44 @@ Isso acontece porque todos os caminhos com menos arestas já foram explorados an
 A DFS não apresenta essa garantia, pois pode explorar primeiro um caminho muito longo, mesmo que exista outro caminho mais curto.
 
 **Atenção:** para grafos ponderados com pesos diferentes, a BFS não necessariamente encontra o caminho de menor custo. Nesse caso, podemos utilizar algoritmos como Dijkstra, que trabalha com uma fila de prioridade.
+
+## Aplicações Práticas de DFS e BFS
+
+### Aplicações de DFS
+A busca em profundidade é particularmente interessante quando queremos explorar completamente as possibilidades de um caminho.
+
+Algumas aplicações:
+- Detecção de ciclos: verificar se existem ciclos em um grafo.
+- Componentes conexas: identificar grupos de vértices conectados.
+- Labirintos: encontrar caminhos explorando possibilidades até encontrar uma saída.
+- Ordenação topológica: organizar tarefas respeitando suas dependências, em grafos direcionados acíclicos (DAGs).
+- Análise de conectividade: identificar pontes e pontos de articulação.
+
+### Aplicações de BFS
+A busca em largura é especialmente útil quando queremos encontrar os elementos mais próximos de um determinado vértice.
+
+Algumas aplicações:
+- Menor caminho: encontrar o caminho com menos arestas em grafos não ponderados.
+- Redes sociais: identificar pessoas que estão a determinada quantidade de conexões de distância.
+- Redes de computadores: explorar conexões por níveis.
+- Labirintos: encontrar o caminho com o menor número de movimentos.
+- Análise de redes: calcular distâncias entre vértices.
+
+## Complexidade dos Algoritmos
+Por fim, existe uma questão importante quando estudamos a implementação desses algoritmos: a complexidade computacional.
+
+Considerando:
+- \(V\): quantidade de vértices.
+- \(E\): quantidade de arestas.
+
+Tanto a DFS quanto a BFS possuem complexidade **$ O(V + E) $**.
+
+Essa complexidade considera a utilização de uma lista de adjacência.
+
+Isso significa que o algoritmo precisa processar cada vértice e cada aresta, no máximo, uma quantidade constante de vezes.
+
+Quando utilizamos uma matriz de adjacência, a complexidade passa a ser **$ O(V²) $**.
+
+Isso ocorre porque, para cada vértice, precisamos verificar todas as possíveis conexões com os demais vértices.
+
+Ambos os algoritmos também podem utilizar $ O(V) $ de espaço auxiliar, considerando o vetor de visitados e a pilha ou fila utilizada na exploração.
