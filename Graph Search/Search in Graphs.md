@@ -21,7 +21,7 @@ Considere o grafo:
  / \   \
 D   E   F
 ```
-- Passo 1:  
+- **Passo 1:**  
 Começamos inserindo A na pilha  
     ```
     Pilha:
@@ -37,7 +37,7 @@ Começamos inserindo A na pilha
     | C |
     -----
     ```
-- Passo 2:  
+- **Passo 2:**  
     Retiramos B e visitamos esse vértice.
 
     Seus vizinhos são A, D e E.
@@ -52,7 +52,7 @@ Começamos inserindo A na pilha
     | C |
     -----
     ```
-- Passo 3:  
+- **Passo 3:**  
     Retiramos D e o visitamos.
 
     Seu único vizinho é B, que já foi visitado.
@@ -64,7 +64,7 @@ Começamos inserindo A na pilha
     | C |
     -----
     ```
-- Passo 4:  
+- **Passo 4:**  
     Retiramos E e o visitamos.
 
     Seu único vizinho também já foi visitado.
@@ -73,7 +73,7 @@ Começamos inserindo A na pilha
     | C | <- Topo
     -----
     ```
-- Passo 5:  
+- **Passo 5:**  
     Retiramos C e o visitamos.
 
     Seu vizinho A já foi visitado, mas F ainda não.
@@ -84,14 +84,14 @@ Começamos inserindo A na pilha
     | F | <- Topo
     -----
     ```
-- Passo 6:  
+- **Passo 6:**  
     Retiramos F e o visitamos.
 
     Como seu único vizinho, C, já foi visitado, não adicionamos nada.
 
     A pilha fica vazia e o algoritmo termina.
 
-- Resultado do algoritmo:  
+- **Resultado do algoritmo:**  
     A ordem que cada vérticie foi visitado é:
     ```​
     A --> B --> D --> E --> C --> F
@@ -120,7 +120,7 @@ Seu funcionamento é:
 ### Exemplo de execução
 Considere o mesmo grafo apresentado no exemplo da DFS.
 
-- Passo 1:  
+- **Passo 1:**  
     Inserimos A na fila:
     ```
     Início        Final
@@ -131,7 +131,7 @@ Considere o mesmo grafo apresentado no exemplo da DFS.
     Início                Final
      | B | -------------- | C |
     ```
-- Passo 2:  
+- **Passo 2:**  
     Retiramos B e o visitamos.
 
     Seus vizinhos são A, D e E.
@@ -141,7 +141,7 @@ Considere o mesmo grafo apresentado no exemplo da DFS.
     Início                         Final
      | C | -------- | D | -------- | E |
     ```
-- Passo 3:  
+- **Passo 3:**  
     Retiramos C e o visitamos.
 
     Seus vizinhos são A e F.
@@ -151,7 +151,7 @@ Considere o mesmo grafo apresentado no exemplo da DFS.
     Início                         Final
      | D | -------- | E | -------- | F |
     ```
-- Passo 4:  
+- **Passo 4:**  
     Retiramos D e o visitamos.
 
     Seu único vizinho, B, já foi visitado.
@@ -161,7 +161,7 @@ Considere o mesmo grafo apresentado no exemplo da DFS.
     Início             Final
      | E | ----------- | F |
     ```
-- Passo 5:  
+- **Passo 5:**  
     Retiramos E e o visitamos.
 
     Seu único vizinho, B, já foi visitado.
@@ -169,13 +169,13 @@ Considere o mesmo grafo apresentado no exemplo da DFS.
     Início
      | F |
     ```
-- Passo 6:  
+- **Passo 6:**  
     Retiramos F e o visitamos.
 
     Seu único vizinho, C, já foi visitado.
 
     A fila fica vazia e o algoritmo termina.
-- Resultado do algoritmo:  
+- **Resultado do algoritmo:**  
     A ordem de visitação foi:
     ```
     A --> B --> C --> D --> E --> F
@@ -202,4 +202,4 @@ Isso acontece porque todos os caminhos com menos arestas já foram explorados an
 
 A DFS não apresenta essa garantia, pois pode explorar primeiro um caminho muito longo, mesmo que exista outro caminho mais curto.
 
-Atenção: para grafos ponderados com pesos diferentes, a BFS não necessariamente encontra o caminho de menor custo. Nesse caso, podemos utilizar algoritmos como Dijkstra, que trabalha com uma fila de prioridade.
+**Atenção:** para grafos ponderados com pesos diferentes, a BFS não necessariamente encontra o caminho de menor custo. Nesse caso, podemos utilizar algoritmos como Dijkstra, que trabalha com uma fila de prioridade.
